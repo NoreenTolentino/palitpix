@@ -1,0 +1,201 @@
+/* ==========================================================================
+   PalitPix design tokens and base styles
+   Brand colors: cobalt blue and sun yellow, with mint for success.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Typography */
+  --font-display: 'Unbounded', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* Radii: bigger surfaces get bigger corners */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Brand colors (same in both themes) */
+  --cobalt: #2b44ff;
+  --sun: #ffc83d;
+  --mint: #35d6a4;
+
+  /* Light theme */
+  --bg: #f1f4fb;
+  --surface: #ffffff;
+  --surface-sunk: #e6ebf8;
+  --ink: #101636;
+  --ink-soft: #4a5278;
+  --line: #d3daf0;
+  --line-strong: #7d89bd;
+  --grid-line: rgba(16, 22, 54, 0.06);
+
+  --primary: #2b44ff;
+  --primary-hover: #1f34d6;
+  --on-primary: #ffffff;
+  --link: #2b44ff;
+  --focus: #2b44ff;
+  --pop-shadow: #101636;
+  --drop-bg: #e8ecff;
+
+  --info-bg: #e0e5ff;
+  --info-text: #2234c9;
+  --success-bg: #d9f7ea;
+  --success-text: #0b6b49;
+  --warn-bg: #fff0c2;
+  --warn-text: #7a5200;
+  --danger-bg: #fde4e1;
+  --danger-text: #b3261e;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0a0e27;
+  --surface: #131941;
+  --surface-sunk: #1d2557;
+  --ink: #eef1ff;
+  --ink-soft: #a6aedb;
+  --line: #2a3270;
+  --line-strong: #5c68a8;
+  --grid-line: rgba(238, 241, 255, 0.05);
+
+  --primary: #8f9dff;
+  --primary-hover: #aab4ff;
+  --on-primary: #0a0e27;
+  --link: #9fabff;
+  --focus: #b4beff;
+  --pop-shadow: #5c68a8;
+  --drop-bg: #1a2260;
+
+  --info-bg: #222b6b;
+  --info-text: #c3ccff;
+  --success-bg: #0f3d33;
+  --success-text: #7ff0c8;
+  --warn-bg: #4a3a0a;
+  --warn-text: #ffd978;
+  --danger-bg: #4a1a24;
+  --danger-text: #ffb4b0;
+}
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* A faint pixel grid behind the page, fading out toward the bottom. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 65%);
+  mask-image: linear-gradient(to bottom, #000, transparent 65%);
+}
+
+h1,
+h2,
+p,
+ul,
+fieldset {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Accessibility helpers ---------- */
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
