@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/palitpix/favicon.svg" />
+    <meta
+      name="description"
+      content="PalitPix converts PNG, JPEG, JFIF, WebP, GIF and BMP images right in your browser. Nothing is uploaded."
+    />
+    <title>PalitPix - Image format converter</title>
+
+    <!-- Fonts: Unbounded (display) and Figtree (body). System fonts are used as fallback. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set the saved theme before the page paints, so there is no flash of the wrong theme. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('palitpix-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/palitpix/assets/index-BhZ11-Yz.js"></script>
+    <link rel="stylesheet" crossorigin href="/palitpix/assets/index-BcZmHB0U.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
