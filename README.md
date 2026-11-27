@@ -2,7 +2,7 @@
 
 *Change your image format in seconds.* PalitPix is a free image converter that runs entirely in your browser. Nothing is uploaded to a server, so your images stay on your device.
 
-*Live site*
+**Live Site** https://noreentolentino.github.io/palitpix/
 
 ## Features
 
